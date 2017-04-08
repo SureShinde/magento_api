@@ -1,0 +1,691 @@
+<config>
+    <api2>
+        <resource_groups>
+            <bzaikiaapi translate="title" module="bzaikia_api">
+                <title>Bzaikia Api</title>
+                <sort_order>1</sort_order>
+            </bzaikiaapi>
+        </resource_groups>
+        <resources>
+            <getcategories translate="title" module="bzaikia_api">
+                <group>bzaikiaapi</group>
+                <sort_order>90</sort_order>
+                <model>bzaikia_api/api2_category</model>
+                <working_model>catalog/category</working_model>
+                <title>Get Categories</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <id>Catalog Id</id>
+                    <name>Name</name>
+                    <image>Image</image>
+                    <product_count>Product Count</product_count>
+                    <child>Child</child>
+                </attributes>
+                <routes>
+                    <route_collection>
+                        <route>/getCategories</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                </routes>
+                <versions>1</versions>
+            </getcategories>
+            <getproducts>
+                <group>bzaikiaapi</group>
+                <sort_order>90</sort_order>
+                <model>bzaikia_api/api2_products</model>
+                <working_model>catalog/product</working_model>
+                <title>Get Products</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <limit>Limit</limit>
+                    <count>Product Count</count>
+                    <products>Products return</products>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/getProducts</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>
+            </getproducts>
+
+            <getproductdetail>
+                <group>bzaikiaapi</group>
+                <sort_order>90</sort_order>
+                <model>bzaikia_api/api2_product</model>
+                <working_model>catalog/product</working_model>
+                <title>Get Product Detail</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <data>Data</data>
+                    <name>Name</name>
+                    <description>Sales description of the product. </description>
+                    <image>full URL to the image (String)</image>
+                    <brand>Product brand</brand>
+                    <price>Price of the product (Double/Float)</price>
+                    <price_unit>Unit of the Price, EUR, GBP, USD… (String)</price_unit>
+                    <servings_count>Servings count (Int)</servings_count>
+                    <nutri_info_image>full URL to nutrients breakdown image supplied by Powerbody (String)</nutri_info_image>
+                    <nutri_info_text>Nutritional breakdown text supplied by Powerbody (String)</nutri_info_text>
+                    <nutri_info_details>Array of nutritional values, such as calories, fat, carbs, proteins, sodium,.. (values per 100g)</nutri_info_details>
+                    <option>Configurable Option</option>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/getProductDetails</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>
+            </getproductdetail>
+
+
+            <getproductavailability>
+                <group>bzaikiaapi</group>
+                <sort_order>90</sort_order>
+                <model>bzaikia_api/api2_productavailability</model>
+                <working_model>catalog/product</working_model>
+                <title>Get Product Availability</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <sku>Product Sku</sku>
+                    <price>Product price</price>
+                    <available_stock>Product qty</available_stock>
+                </attributes>
+                <routes>
+                    <route_collection>
+                        <route>/getProductAvailability</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                </routes>
+                <versions>1</versions>
+            </getproductavailability>
+
+            <getbrands>
+                <group>bzaikiaapi</group>
+                <sort_order>90</sort_order>
+                <model>bzaikia_api/api2_brand</model>
+                <working_model>catalog/product</working_model>
+                <title>Get Brands</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <id>Id</id>
+                    <name>Brand Name</name>
+                </attributes>
+                <routes>
+                    <route_collection>
+                        <route>/getBrands</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                </routes>
+                <versions>1</versions>
+            </getbrands>
+
+            <cart>
+                <group>bzaikiaapi</group>
+                <sort_order>91</sort_order>
+                <model>bzaikia_api/api2_cart</model>
+                <working_model>catalog/product</working_model>
+                <title>Cart</title>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id>User Id</user_id>
+                    <items>Items</items>
+                </attributes>
+                <routes>
+                    <route_collection>
+                        <route>/cart</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                </routes>
+                <versions>1</versions>
+            </cart>
+
+            <cart_info>
+                <group>bzaikiaapi</group>
+                <sort_order>91</sort_order>
+                <model>bzaikia_api/api2_cart_info</model>
+                <working_model>catalog/product</working_model>
+                <title>Cart Info</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <product_image>Product Image</product_image>
+                    <product_title>Product Name</product_title>
+                    <product_weight>Product Weight</product_weight>
+                    <product_flavour>Product Flavour</product_flavour>
+                    <brand_name>Brand name</brand_name>
+                    <quantity>Quantity</quantity>
+                    <price>Product Price</price>
+                </attributes>
+                <routes>
+                    <route_collection>
+                        <route>/cart/info</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                </routes>
+                <versions>1</versions>
+            </cart_info>
+
+            <cart_clear>
+                <group>bzaikiaapi</group>
+                <sort_order>91</sort_order>
+                <model>bzaikia_api/api2_cart_clear</model>
+                <working_model>catalog/product</working_model>
+                <title>Cart Clear</title>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id>User Id</user_id>
+                </attributes>
+                <routes>
+                    <router_entity>
+                        <route>/cart/clear</route>
+                        <action_type>entity</action_type>
+                    </router_entity>
+                </routes>
+                <versions>1</versions>
+            </cart_clear>
+
+            <cart_product>
+                <group>bzaikiaapi</group>
+                <sort_order>92</sort_order>
+                <model>bzaikia_api/api2_cart_product</model>
+                <working_model>catalog/product</working_model>
+                <title>Product To Cart</title>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id>User Id</user_id>
+                    <sku>SKU</sku>
+                    <qty>Quantity</qty>
+                    <products>Products</products>
+                    <super_attribute>Option</super_attribute>
+                    <quote_item_id>Quote Item Id</quote_item_id>
+                    <external_bundle_id>External Bundle Id</external_bundle_id>
+                </attributes>
+                <routes>
+                    <route>
+                        <route>/cart/product</route>
+                        <action_type>entity</action_type>
+                    </route>
+                </routes>
+                <versions>1</versions>
+            </cart_product>
+
+            <cart_products>
+                <group>bzaikiaapi</group>
+                <sort_order>92</sort_order>
+                <model>bzaikia_api/api2_cart_product</model>
+                <working_model>catalog/product</working_model>
+                <title>Add Multiple Products To Cart</title>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id>User Id</user_id>
+                    <sku>SKU</sku>
+                    <qty>Quantity</qty>
+                    <products>Products</products>
+                    <super_attribute>Option</super_attribute>
+                    <quote_item_id>Quote Item Id</quote_item_id>
+                    <external_bundle_id>External Bundle Id</external_bundle_id>
+                </attributes>
+                <routes>
+                    <route>
+                        <route>/cart/products</route>
+                        <action_type>entity</action_type>
+                    </route>
+                </routes>
+                <versions>1</versions>
+            </cart_products>
+
+            <address>
+                <group>bzaikiaapi</group>
+                <sort_order>93</sort_order>
+                <model>bzaikia_api/api2_cart_address</model>
+                <working_model>catalog/product</working_model>
+                <title>Billing and Shipping Address</title>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id>User Id</user_id>
+                    <firstname>First Name</firstname>
+                    <lastname>Last Name</lastname>
+                    <address_line_one>Address Line 1</address_line_one>
+                    <address_line_two>Address Line 2</address_line_two>
+                    <postalcode>user’s postal code </postalcode>
+                    <city>user’s city </city>
+                    <country>user’s country code</country>
+                    <telephone>Telephone</telephone>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/cart/address</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>
+            </address>
+
+            <payment_token>
+                <group>bzaikiaapi</group>
+                <sort_order>94</sort_order>
+                <model>bzaikia_api/api2_cart_token</model>
+                <working_model>catalog/product</working_model>
+                <title>Generate the client token</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id>User Id</user_id>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/cart/payment/client_token</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                </routes>
+                <versions>1</versions>
+            </payment_token>
+
+            <cart_shipping>
+                <group>bzaikiaapi</group>
+                <sort_order>95</sort_order>
+                <model>bzaikia_api/api2_cart_shipping</model>
+                <working_model>catalog/product</working_model>
+                <title>Shipping Get</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <shipping_code>Shipping Code</shipping_code>
+                    <name>Shipping Label</name>
+                    <price>Shipping Price</price>
+                </attributes>
+                <routes>
+                    <route_collection>
+                        <route>/cart/shipping/get</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                </routes>
+                <versions>1</versions>
+            </cart_shipping>
+
+            <cart_shipping_update>
+                <group>bzaikiaapi</group>
+                <sort_order>95</sort_order>
+                <model>bzaikia_api/api2_cart_shipping</model>
+                <working_model>catalog/product</working_model>
+                <title>Shipping Post</title>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id>User id</user_id>
+                    <shipping_method>Shipping Method</shipping_method>
+                </attributes>
+                <routes>
+                    <router_entity>
+                        <route>/cart/shipping/</route>
+                        <action_type>entity</action_type>
+                    </router_entity>
+                </routes>
+                <versions>1</versions>
+            </cart_shipping_update>
+
+            <cart_promo_post>
+                <group>bzaikiaapi</group>
+                <sort_order>96</sort_order>
+                <model>bzaikia_api/api2_cart_promo</model>
+                <working_model>catalog/product</working_model>
+                <title>Promotion</title>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id>User id</user_id>
+                    <code>Promo code</code>
+                </attributes>
+                <routes>
+                    <router_entity>
+                        <route>/cart/promo/</route>
+                        <action_type>entity</action_type>
+                    </router_entity>
+                </routes>
+                <versions>1</versions>
+            </cart_promo_post>
+
+            <cart_payment_post>
+                <group>bzaikiaapi</group>
+                <sort_order>96</sort_order>
+                <model>bzaikia_api/api2_cart_payment</model>
+                <working_model>catalog/product</working_model>
+                <title>Payment</title>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id>User id</user_id>
+                    <payment_method>Payment code</payment_method>
+                </attributes>
+                <routes>
+                    <router_entity>
+                        <route>/cart/payment/</route>
+                        <action_type>entity</action_type>
+                    </router_entity>
+                </routes>
+                <versions>1</versions>
+            </cart_payment_post>
+
+            <cart_order_post>
+                <group>bzaikiaapi</group>
+                <sort_order>96</sort_order>
+                <model>bzaikia_api/api2_cart_order</model>
+                <working_model>catalog/product</working_model>
+                <title>Order Place</title>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id>User id</user_id>
+                    <method>Payment method</method>
+                    <payment_method_nonce>Braintree payment nounce</payment_method_nonce>
+                    <device_data>Devide Data</device_data>
+                </attributes>
+                <routes>
+                    <router_entity>
+                        <route>/cart/order/</route>
+                        <action_type>entity</action_type>
+                    </router_entity>
+                </routes>
+                <versions>1</versions>
+            </cart_order_post>
+
+            <orders>
+                <group>bzaikiaapi</group>
+                <sort_order>96</sort_order>
+                <model>bzaikia_api/api2_orders</model>
+                <working_model>catalog/product</working_model>
+                <title>Get latest orders</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <magento_order_id>id of the magento order</magento_order_id>
+                    <order_status>status of the order</order_status>
+                    <external_user_id> id of the django user (external)</external_user_id>
+                    <external_bundle_id>external django bundle reference id</external_bundle_id>
+                    <external_affiliate_id>external django affiliate id (trainer id)</external_affiliate_id>
+                    <shipping_and_handling>shipping and handling</shipping_and_handling>
+                    <total_price>Total Price</total_price>
+                    <products>Products</products>
+                </attributes>
+                <routes>
+                    <route_collection>
+                        <route>getorders</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                </routes>
+                <versions>1</versions>
+            </orders>
+
+            <cart_total>
+                <group>bzaikiaapi</group>
+                <sort_order>97</sort_order>
+                <model>bzaikia_api/api2_cart_total</model>
+                <working_model>catalog/product</working_model>
+                <title>Totals</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id>User Id</user_id>
+                    <subtotal>Subtotals</subtotal>
+                    <shipping>Shipping cost</shipping>
+                    <discount>Applied discount</discount>
+                    <total> The grand total price of the cart</total>
+                </attributes>
+                <routes>
+                    <router_entity>
+                        <route>/cart/totals/</route>
+                        <action_type>entity</action_type>
+                    </router_entity>
+                </routes>
+                <versions>1</versions>
+            </cart_total>
+
+            <post_user>
+                <group>bzaikiaapi</group>
+                <sort_order>97</sort_order>
+                <model>bzaikia_api/api2_user</model>
+                <working_model>catalog/product</working_model>
+                <title>User</title>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <payload>hash data</payload>
+                </attributes>
+                <routes>
+                    <router_entity>
+                        <route>/user/</route>
+                        <action_type>entity</action_type>
+                    </router_entity>
+                </routes>
+                <versions>1</versions>
+            </post_user>
+
+            <affiliate_associate>
+                <group>bzaikiaapi</group>
+                <sort_order>98</sort_order>
+                <model>bzaikia_api/api2_affiliate_associate</model>
+                <working_model>catalog/product</working_model>
+                <title>Affiliate Associate</title>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id_external>Django’s user id of the trainee</user_id_external>
+                    <affiliate_id_external>Django’s user id of the new trainer</affiliate_id_external>
+                </attributes>
+                <routes>
+                    <router_entity>
+                        <route>/affiliate/associate/</route>
+                        <action_type>entity</action_type>
+                    </router_entity>
+                </routes>
+                <versions>1</versions>
+            </affiliate_associate>
+
+            <affiliate_earnings>
+                <group>bzaikiaapi</group>
+                <sort_order>98</sort_order>
+                <model>bzaikia_api/api2_affiliate_earning</model>
+                <working_model>catalog/product</working_model>
+                <title>Affiliate Earning</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <total>Total earnings earned in the specified range (Float)</total>
+                    <earnings>Array of sales</earnings>
+                </attributes>
+                <routes>
+                    <router_entity>
+                        <route>/affiliate/earnings/</route>
+                        <action_type>entity</action_type>
+                    </router_entity>
+                </routes>
+                <versions>1</versions>
+            </affiliate_earnings>
+
+            <affiliate_sold>
+                <group>bzaikiaapi</group>
+                <sort_order>98</sort_order>
+                <model>bzaikia_api/api2_affiliate_sold</model>
+                <working_model>catalog/product</working_model>
+                <title>Affiliate Sold</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <total>Total earnings earned in the specified range (Float)</total>
+                    <sales>Array of sales</sales>
+                </attributes>
+                <routes>
+                    <router_entity>
+                        <route>/affiliate/sold/</route>
+                        <action_type>entity</action_type>
+                    </router_entity>
+                </routes>
+                <versions>1</versions>
+            </affiliate_sold>
+
+            <affiliate_pypal>
+                <group>bzaikiaapi</group>
+                <sort_order>99</sort_order>
+                <model>bzaikia_api/api2_affiliate_paypal</model>
+                <working_model>catalog/product</working_model>
+                <title>Affiliate Paypal (get/set)</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                        <create>1</create>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id>User id</user_id>
+                    <paypal_email>paypal email</paypal_email>
+                </attributes>
+                <routes>
+                    <router_entity>
+                        <route>/affiliate/paypal/</route>
+                        <action_type>entity</action_type>
+                    </router_entity>
+                </routes>
+                <versions>1</versions>
+            </affiliate_pypal>
+
+            <affiliate_balance>
+                <group>bzaikiaapi</group>
+                <sort_order>99</sort_order>
+                <model>bzaikia_api/api2_affiliate_balance</model>
+                <working_model>catalog/product</working_model>
+                <title>Affiliate Balance</title>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <user_id>User id</user_id>
+                    <name>name</name>
+                    <email>email</email>
+                    <balance>balance</balance>
+                    <commission_paid>commission paid</commission_paid>
+                    <total_paid>total paid</total_paid>
+                </attributes>
+                <routes>
+                    <router_entity>
+                        <route>/affiliate/balance/</route>
+                        <action_type>entity</action_type>
+                    </router_entity>
+                </routes>
+                <versions>1</versions>
+            </affiliate_balance>
+
+            <bundle>
+                <group>bzaikiaapi</group>
+                <sort_order>99</sort_order>
+                <model>bzaikia_api/api2_bundle</model>
+                <working_model>catalog/product</working_model>
+                <title>Product Bundle</title>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <bundle_name>Name of the bundle. For example: Super Whey Pack (String)</bundle_name>
+                    <bundle_id_external>ID of the bundle object in Django.</bundle_id_external>
+                    <product_items>Array of product items, SKU and quantity combinations to be added to a bundle</product_items>
+                </attributes>
+                <routes>
+                    <router_entity>
+                        <route>/productbundle/</route>
+                        <action_type>entity</action_type>
+                    </router_entity>
+                </routes>
+                <versions>1</versions>
+            </bundle>
+        </resources>
+    </api2>
+</config>

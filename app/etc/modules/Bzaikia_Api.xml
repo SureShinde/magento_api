@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Bzaikia_Api>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Magestore_Affiliateplus />
+            </depends>
+        </Bzaikia_Api>
+    </modules>
+</config>

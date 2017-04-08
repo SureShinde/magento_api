@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Bzaikia_JWT>
+            <version>0.1.0</version>
+        </Bzaikia_JWT>
+    </modules>
+    <global>
+        <models>
+            <bzaikia_jwt>
+                <class>Bzaikia_JWT_Model</class>
+            </bzaikia_jwt>
+        </models>
+        <blocks>
+            <bzaikia_jwt>
+                <class>Bzaikia_JWT_Block</class>
+            </bzaikia_jwt>
+        </blocks>
+        <helpers>
+            <bzaikia_jwt>
+                <class>Bzaikia_JWT_Helper</class>
+            </bzaikia_jwt>
+        </helpers>
+    </global>
+</config>

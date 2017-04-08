@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Bzaikia_JWT>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Bzaikia_JWT>
+    </modules>
+</config>
